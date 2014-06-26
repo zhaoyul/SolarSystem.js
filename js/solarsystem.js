@@ -13,7 +13,7 @@ $(document).ready(function(){
     speed = +$('#slider').slider("option", "value");
     $("#speed_value").text("×"+speed);
   });
-  //button click
+  //button clicked
   var drawpath = false; // set if draw the path
   $("#draw").click(function(){
     if(drawpath == false){
@@ -30,11 +30,27 @@ $(document).ready(function(){
   ctx = canvas.getContext("2d");
   var backimg = new Image();
   backimg.src = "./img/space.jpg";
-  backimg.onload = function(){
+  //backimg.onload = function(){
     ctx.drawImage(backimg,0,0);
-    };
+    //};
 
   //draw Solar system
+  var planets = new Array(9);
+  var center_x = canvas.width/2;
+  var center_y = canvas.height/2;
+  var timer = 0;
+  var cycle = [0.000001,0.24,0.62,1,1.88,11.86,29.46,84,165];
+  function drawing(){
+    ctx.clearRect ( 0 , 0 , 500 , 500 );
+    for(i = 0; i < 9; i++){
+      planets[i] = document.getElementById(i);
+      var movement = Math.PI*(1/30)*timer/cycle[i];
+      ctx.drawImage(planets[i],center_x+Math.cos(movement)*30*i,center_y+Math.sin(movement)*30*i, 10, 10);
+    }
+    timer += 1*(speed+1);
+  }
+  setInterval(function(){drawing()}, 100);
+
 
 
 });

@@ -14,3 +14,6 @@ span.hidden {
     float: right;
     font-size:80%;
 }
+img.planets {
+  display:none;
+}
