@@ -1,0 +1,19 @@
+html, body {
+    height: 100%;
+}
+html {
+    display: table;
+    margin: auto;
+}
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+span.hidden {
+    display: none;
+    float: right;
+    font-size:80%;
+}
+img.planets {
+  display:none;
+}

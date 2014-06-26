@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
 <title>Solar System</title>
 <meta charset="utf-8">
@@ -8,15 +9,29 @@
 <link rel="stylesheet" type="text/css" href="./css/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="./css/jquery-ui.structure.min.css">
 <link rel="stylesheet" type="text/css" href="./css/jquery-ui.theme.min.css">
-<script src="./js/jquery-2.1.1.min.js"></script></head>
-<script src="./js/jquery-ui.min.js"></script></head>
+<script src="./js/jquery-2.1.1.min.js"></script>
+<script src="./js/jquery-ui.min.js"></script>
+</head>
+
 <body>
-<canvas id="canvas" width="200" height="100"
+<canvas id="canvas" width="500" height="500"
 style="border:1px solid #000000;">
 </canvas>
 <div id="control">
   <button type="button" id="draw">Draw Path</button>
+  <span id="label" class="hidden">Speed:<span id="speed_value">0</span></span>
   <div id="slider"></div>
 </div>
-<script src="./js/solarsystem.js"></script></body>
+<img id="0" class="planets" src="./img/0.png" alt="Sun" >
+<img id="1" class="planets" src="./img/1.png" alt="mercury" >
+<img id="2" class="planets" src="./img/2.png" alt="venus" >
+<img id="3" class="planets" src="./img/3.png" alt="earth" >
+<img id="4" class="planets" src="./img/4.png" alt="mars" >
+<img id="5" class="planets" src="./img/5.png" alt="jupiter">
+<img id="6" class="planets" src="./img/6.png" alt="saturn">
+<img id="7" class="planets" src="./img/7.png" alt="uranus">
+<img id="8" class="planets" src="./img/8.png" alt="neptune">
+<script src="./js/solarsystem.js"></script>
+</body>
+
 </html>
