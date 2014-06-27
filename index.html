@@ -11,16 +11,24 @@
 <link rel="stylesheet" type="text/css" href="./css/jquery-ui.theme.min.css">
 <script src="./js/jquery-2.1.1.min.js"></script>
 <script src="./js/jquery-ui.min.js"></script>
+<script src="./js/jcanvas.min.js"></script>
 </head>
 
 <body>
-<canvas id="canvas" width="500" height="500"></canvas>
+<canvas id="canvas_layer1" width="500" height="500"></canvas>
+<canvas id="canvas_layer2" width="500" height="500"></canvas>
 <div id="control">
   <button type="button" id="system">Heliocentric</button>
   <button type="button" id="draw">Draw Path</button>
   <span id="label" class="hidden">Speed:<span id="speed_value">0</span></span>
   <div id="slider"></div>
+<p>Usage:</br>
+<p>Move the mouse cursor onto the canvas can pause the motion, move out to continue;</br>
+Drag the slider bar to change the motion speed;</br>
+Click the Helicentric button to change between helicentric or geocentric system;</br>
+Click draw path to draw the orbit based on selected system.</br>
 </div>
+
 <img id="0" class="planets" src="./img/0.png" alt="Sun" >
 <img id="1" class="planets" src="./img/1.png" alt="mercury" >
 <img id="2" class="planets" src="./img/2.png" alt="venus" >

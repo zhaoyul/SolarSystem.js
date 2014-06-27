@@ -1,13 +1,7 @@
-html, body {
-    height: 100%;
-}
-html {
-    display: table;
-    margin: auto;
-}
-body {
-    display: table-cell;
-    vertical-align: middle;
+#control {
+	width: 500px;
+	position: absolute;
+	top: 500px;
 }
 span.hidden {
     display: none;
@@ -16,4 +10,15 @@ span.hidden {
 }
 img.planets {
   display:none;
+}
+canvas {
+	position:absolute;
+    left:10px;
+    top:0px;
+}
+#canvas_layer1{
+	z-index: 1;
+}
+#canvas_layer2{
+	z-index: 2;
 }
