@@ -108,15 +108,13 @@ $(document).ready(function(){
     timer += 1*(speed+1);
   }
  
-	//start rolling
+  //start rolling
   var myInterval = setInterval(function(){drawing()}, interval_time);
-  $("canvas_layer1").mouseover(function(){
+  $("#canvas_layer2").mouseover(function(){
 	clearInterval(myInterval);
   });
-  $("canvas_layer1").mouseleave(function(){
+  $("#canvas_layer2").mouseleave(function(){
 	myInterval = setInterval(function(){drawing()}, interval_time);
   });
-
-
 
 });
