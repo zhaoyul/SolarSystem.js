@@ -51,14 +51,29 @@ $(document).ready(function(){
   var interval_time = 100;
   var earth_year = 3000; // how long a earth year on this canvas, unit is ms
   var orbit_portion = earth_year/interval_time;
-  var cycle = [0.000001,0.24,0.62,1,1.88,11.86,29.46,84,165]; //first element should be zero, set to 0.000001 is to avoid divid by zero
+  var cycle_H = [0.000001,0.24,0.62,1,1.88,11.86,29.46,84,165]; //first element should be zero, set to 0.000001 is to avoid divid by zero
+  var cycle_G = [1,0.24,0.62,0.000001,1.88,11.86,29.46,84,165];
   function drawing(){
     ctx.clearRect ( 0 , 0 , canvas.width , canvas.height );
     ctx.drawImage( backimg , 0 , 0 , canvas.width , canvas.height );
     for(i = 0; i < number_planet; i++){
       planets[i] = document.getElementById(i);
-      var movement = Math.PI*(1/orbit_portion)*timer/cycle[i];
-      ctx.drawImage(planets[i],center_x+Math.cos(movement)*planet_distance*i,center_y+Math.sin(movement)*planet_distance*i, maximagesize, maximagesize);
+	  if(geocentric == false){
+		  var movement = Math.PI*(1/orbit_portion)*timer/cycle_H[i];
+		  ctx.drawImage(planets[i],center_x+Math.cos(movement)*planet_distance*i,center_y+Math.sin(movement)*planet_distance*i, maximagesize, maximagesize);
+	  }
+	  else{
+		  var movement = Math.PI*(1/orbit_portion)*timer/cycle_G[i];
+		  if(i==0){
+			ctx.drawImage(planets[i],center_x+Math.cos(movement)*planet_distance*(i-3),center_y+Math.sin(movement)*planet_distance*(i-3), maximagesize, maximagesize);
+			var new_x = center_x+Math.cos(movement)*planet_distance*(i-3);
+			var new_y = center_y+Math.sin(movement)*planet_distance*(i-3);
+		  }
+		  else if(i==3)
+			ctx.drawImage(planets[i],center_x+Math.cos(movement)*planet_distance*(i-3),center_y+Math.sin(movement)*planet_distance*(i-3), maximagesize, maximagesize);			
+		  else
+			ctx.drawImage(planets[i],new_x+Math.cos(movement)*planet_distance*i,new_y+Math.sin(movement)*planet_distance*i, maximagesize, maximagesize);
+	  }
       if(drawpath == true){ //draw path if button clicked
         ctx.beginPath();
         ctx.lineWidth="1";
